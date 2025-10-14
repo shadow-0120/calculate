@@ -1,0 +1,21 @@
+{
+  "name": "Depreciation Calculator",
+  "short_name": "DepCalc",
+  "description": "A comprehensive calculator for depreciation, loans, and financial analysis",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}
