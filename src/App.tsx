@@ -39,17 +39,17 @@ function AppContent() {
       <div className="bg-white/80 backdrop-blur-sm border-b border-white/50 shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className={`flex items-center justify-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
-            <Calculator className="h-8 w-8 text-slate-600" />
-            <h1 className="text-2xl font-bold text-slate-800">{t.financialCalculators}</h1>
+            <Calculator className="h-6 w-6 sm:h-8 sm:w-8 text-slate-600" />
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-800">{t.financialCalculators}</h1>
           </div>
-          <div className={`flex justify-center gap-4 mt-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className={`flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 mt-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
             {calculators.map((calc) => {
               const IconComponent = calc.icon;
               return (
                 <button
                   key={calc.id}
                   onClick={() => setActiveCalculator(calc.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  className={`flex items-center justify-center gap-2 px-4 py-3 sm:px-6 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base ${
                     isRTL ? 'flex-row-reverse' : ''
                   } ${
                     activeCalculator === calc.id
@@ -57,8 +57,9 @@ function AppContent() {
                       : 'bg-white/60 text-slate-700 hover:bg-white/80 hover:shadow-md'
                   }`}
                 >
-                  <IconComponent className="h-5 w-5" />
-                  {calc.name}
+                  <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="hidden xs:inline">{calc.name}</span>
+                  <span className="xs:hidden">{calc.name.split(' ')[0]}</span>
                 </button>
               );
             })}

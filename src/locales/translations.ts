@@ -125,9 +125,7 @@ export const translations: Record<Language, Translations> = {
     presentValue: 'Present Value',
     cumulativeNPV: 'Cumulative NPV',
     initial: 'Initial',
-    year: 'Year',
-    amount: 'Amount',
-    description: 'Description'
+    amount: 'Amount'
   },
   
   ar: {
@@ -254,9 +252,7 @@ export const translations: Record<Language, Translations> = {
     presentValue: 'القيمة الحالية',
     cumulativeNPV: 'صافي القيمة الحالية المتراكم',
     initial: 'أولي',
-    year: 'السنة',
-    amount: 'المبلغ',
-    description: 'الوصف'
+    amount: 'المبلغ'
   },
   
   fr: {
@@ -383,8 +379,6 @@ export const translations: Record<Language, Translations> = {
     presentValue: 'Valeur Actuelle',
     cumulativeNPV: 'VAN Cumulée',
     initial: 'Initial',
-    year: 'Année',
-    amount: 'Montant',
-    description: 'Description'
+    amount: 'Montant'
   }
 };

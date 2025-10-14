@@ -144,7 +144,6 @@ const VANCalculator = () => {
   const exportToCSV = () => {
     if (!result) return;
 
-    const headers = [t.year, t.cashFlow, t.presentValue, t.cumulativeNPV];
     const csvContent = [
       [t.initialInvestment, formatCurrencyAmount(-inputs.initialInvestment), '', ''],
       ...result.presentValues.map(pv => [
@@ -175,50 +174,50 @@ const VANCalculator = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-400/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-8">
+      <div className="relative z-10 container mx-auto px-4 py-4 sm:py-8">
         {/* Header */}
-        <div className={`flex items-center justify-center gap-3 mb-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
-          <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg">
-            <BarChart3 className="h-8 w-8 text-white" />
+        <div className={`flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className="p-2 sm:p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg">
+            <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
           </div>
-          <div className={isRTL ? 'text-right' : 'text-left'}>
-            <h1 className="text-3xl font-bold text-slate-800">{t.vanTitle}</h1>
-            <p className="text-slate-600">{t.vanSubtitle}</p>
+          <div className={`${isRTL ? 'text-right' : 'text-left'} max-w-xs sm:max-w-none`}>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800">{t.vanTitle}</h1>
+            <p className="text-sm sm:text-base text-slate-600">{t.vanSubtitle}</p>
           </div>
         </div>
 
         {/* Language Dropdown and Currency Dropdown */}
-        <div className={`fixed top-6 z-50 flex gap-3 ${isRTL ? 'left-6' : 'right-6'}`}>
+        <div className={`fixed top-4 sm:top-6 z-50 flex gap-2 sm:gap-3 ${isRTL ? 'left-4 sm:left-6' : 'right-4 sm:right-6'}`}>
           <LanguageDropdown isDarkMode={false} />
           <CurrencyDropdown isDarkMode={false} />
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Input Form */}
           <motion.div
             initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50"
+            className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-white/50"
           >
-            <h2 className={`text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              <BarChart3 className="h-6 w-6 text-purple-600" />
+            <h2 className={`text-lg sm:text-xl lg:text-2xl font-bold text-slate-800 mb-4 sm:mb-6 flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-purple-600" />
               {t.investmentParameters}
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* Initial Investment */}
               <div>
                 <label className={`block text-sm font-semibold text-slate-700 mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
                   {t.initialInvestment}
                 </label>
                 <div className="relative">
-                  <DollarSign className={`absolute ${isRTL ? 'right-3' : 'left-3'} top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400`} />
+                  <DollarSign className={`absolute ${isRTL ? 'right-3' : 'left-3'} top-1/2 transform -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-slate-400`} />
                   <input
                     type="number"
                     value={inputs.initialInvestment}
                     onChange={(e) => setInputs({...inputs, initialInvestment: Number(e.target.value)})}
-                    className={`w-full ${isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors`}
+                    className={`w-full ${isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors mobile-btn`}
                     placeholder={t.initialInvestment}
                   />
                 </div>
@@ -230,13 +229,13 @@ const VANCalculator = () => {
                   {t.discountRate}
                 </label>
                 <div className="relative">
-                  <TrendingUp className={`absolute ${isRTL ? 'right-3' : 'left-3'} top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400`} />
+                  <TrendingUp className={`absolute ${isRTL ? 'right-3' : 'left-3'} top-1/2 transform -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-slate-400`} />
                   <input
                     type="number"
                     step="0.01"
                     value={inputs.discountRate}
                     onChange={(e) => setInputs({...inputs, discountRate: Number(e.target.value)})}
-                    className={`w-full ${isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors`}
+                    className={`w-full ${isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors mobile-btn`}
                     placeholder={t.discountRate}
                   />
                 </div>
@@ -244,42 +243,42 @@ const VANCalculator = () => {
 
               {/* Cash Flows */}
               <div>
-                <div className={`flex items-center justify-between mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-3 sm:mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <label className={`text-sm font-semibold text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>
                     {t.cashFlows}
                   </label>
                   <button
                     onClick={addCashFlow}
-                    className={`flex items-center gap-2 px-3 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors text-sm font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
+                    className={`flex items-center gap-2 px-3 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors text-xs sm:text-sm font-medium mobile-btn ${isRTL ? 'flex-row-reverse' : ''}`}
                   >
-                    <Plus className="h-4 w-4" />
+                    <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                     {t.addYear}
                   </button>
                 </div>
 
-                <div className="space-y-3 max-h-64 overflow-y-auto">
-                  {inputs.cashFlows.map((cf, index) => (
-                    <div key={cf.id} className={`flex gap-2 items-center p-3 bg-slate-50 rounded-lg ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <div className="space-y-2 sm:space-y-3 max-h-48 sm:max-h-64 overflow-y-auto">
+                  {inputs.cashFlows.map((cf) => (
+                    <div key={cf.id} className={`flex gap-2 items-center p-2 sm:p-3 bg-slate-50 rounded-lg ${isRTL ? 'flex-row-reverse' : ''}`}>
                       <input
                         type="number"
                         value={cf.year}
                         onChange={(e) => updateCashFlow(cf.id, 'year', Number(e.target.value))}
-                        className="w-16 px-2 py-1 border border-slate-300 rounded text-sm"
+                        className="w-12 sm:w-16 px-2 py-1 border border-slate-300 rounded text-xs sm:text-sm mobile-btn"
                         placeholder={t.year}
                       />
                       <input
                         type="number"
                         value={cf.amount}
                         onChange={(e) => updateCashFlow(cf.id, 'amount', Number(e.target.value))}
-                        className="flex-1 px-3 py-1 border border-slate-300 rounded text-sm"
+                        className="flex-1 px-2 sm:px-3 py-1 border border-slate-300 rounded text-xs sm:text-sm mobile-btn"
                         placeholder={t.amount}
                       />
                       {inputs.cashFlows.length > 1 && (
                         <button
                           onClick={() => removeCashFlow(cf.id)}
-                          className="p-1 text-red-500 hover:text-red-700 transition-colors"
+                          className="p-1 text-red-500 hover:text-red-700 transition-colors mobile-btn"
                         >
-                          <Trash2 className="h-4 w-4" />
+                          <Trash2 className="h-3 w-3 sm:h-4 sm:w-4" />
                         </button>
                       )}
                     </div>
@@ -291,7 +290,7 @@ const VANCalculator = () => {
               <button
                 onClick={handleCalculate}
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 px-6 rounded-xl font-semibold hover:from-purple-600 hover:to-pink-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold hover:from-purple-600 hover:to-pink-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl mobile-btn"
               >
                 {isLoading ? t.calculatingVAN : t.calculateVAN}
               </button>
@@ -321,13 +320,13 @@ const VANCalculator = () => {
             {result && !isLoading && (
               <>
                 {/* Summary Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
-                    <div className={`flex items-center gap-3 mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                      <DollarSign className="h-5 w-5 text-purple-600" />
-                      <span className="text-sm font-semibold text-slate-600">{t.netPresentValue}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-white/50">
+                    <div className={`flex items-center gap-2 sm:gap-3 mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                      <DollarSign className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600" />
+                      <span className="text-xs sm:text-sm font-semibold text-slate-600">{t.netPresentValue}</span>
                     </div>
-                    <p className={`text-2xl font-bold ${result.netPresentValue >= 0 ? 'text-green-600' : 'text-red-600'} ${isRTL ? 'text-right' : 'text-left'}`}>
+                    <p className={`text-lg sm:text-2xl font-bold ${result.netPresentValue >= 0 ? 'text-green-600' : 'text-red-600'} ${isRTL ? 'text-right' : 'text-left'}`}>
                       {formatCurrencyAmount(result.netPresentValue)}
                     </p>
                     <p className={`text-xs text-slate-500 mt-1 ${isRTL ? 'text-right' : 'text-left'}`}>
@@ -335,12 +334,12 @@ const VANCalculator = () => {
                     </p>
                   </div>
 
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
-                    <div className={`flex items-center gap-3 mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                      <TrendingUp className="h-5 w-5 text-blue-600" />
-                      <span className="text-sm font-semibold text-slate-600">{t.profitabilityIndex}</span>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-white/50">
+                    <div className={`flex items-center gap-2 sm:gap-3 mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                      <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
+                      <span className="text-xs sm:text-sm font-semibold text-slate-600">{t.profitabilityIndex}</span>
                     </div>
-                    <p className={`text-2xl font-bold text-slate-800 ${isRTL ? 'text-right' : 'text-left'}`}>{result.profitabilityIndex.toFixed(2)}</p>
+                    <p className={`text-lg sm:text-2xl font-bold text-slate-800 ${isRTL ? 'text-right' : 'text-left'}`}>{result.profitabilityIndex.toFixed(2)}</p>
                     <p className={`text-xs text-slate-500 mt-1 ${isRTL ? 'text-right' : 'text-left'}`}>
                       {result.profitabilityIndex >= 1 ? t.acceptable : t.notAcceptable}
                     </p>
@@ -349,51 +348,51 @@ const VANCalculator = () => {
 
                 {/* Payback Period */}
                 {result.paybackPeriod && (
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
-                    <div className={`flex items-center gap-3 mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                      <BarChart3 className="h-5 w-5 text-emerald-600" />
-                      <span className="text-sm font-semibold text-slate-600">{t.paybackPeriod}</span>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-white/50">
+                    <div className={`flex items-center gap-2 sm:gap-3 mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                      <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600" />
+                      <span className="text-xs sm:text-sm font-semibold text-slate-600">{t.paybackPeriod}</span>
                     </div>
-                    <p className={`text-2xl font-bold text-slate-800 ${isRTL ? 'text-right' : 'text-left'}`}>{result.paybackPeriod} {t.years}</p>
+                    <p className={`text-lg sm:text-2xl font-bold text-slate-800 ${isRTL ? 'text-right' : 'text-left'}`}>{result.paybackPeriod} {t.years}</p>
                   </div>
                 )}
 
                 {/* Cash Flow Analysis */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-white/50">
-                  <div className={`flex items-center justify-between mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                    <h3 className={`text-xl font-bold text-slate-800 ${isRTL ? 'text-right' : 'text-left'}`}>{t.cashFlowAnalysis}</h3>
+                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 shadow-xl border border-white/50">
+                  <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4 sm:mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <h3 className={`text-lg sm:text-xl font-bold text-slate-800 ${isRTL ? 'text-right' : 'text-left'}`}>{t.cashFlowAnalysis}</h3>
                     <button
                       onClick={exportToCSV}
-                      className={`flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors text-sm font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
+                      className={`flex items-center gap-2 px-3 sm:px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors text-xs sm:text-sm font-medium mobile-btn ${isRTL ? 'flex-row-reverse' : ''}`}
                     >
-                      <Download className="h-4 w-4" />
+                      <Download className="h-3 w-3 sm:h-4 sm:w-4" />
                       {t.exportCSV}
                     </button>
                   </div>
 
                   <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                    <table className="w-full text-xs sm:text-sm mobile-table">
                       <thead>
                         <tr className="border-b border-slate-200">
-                          <th className={`py-3 px-2 font-semibold text-slate-600 ${isRTL ? 'text-right' : 'text-left'}`}>{t.year}</th>
-                          <th className={`py-3 px-2 font-semibold text-slate-600 ${isRTL ? 'text-left' : 'text-right'}`}>{t.cashFlow}</th>
-                          <th className={`py-3 px-2 font-semibold text-slate-600 ${isRTL ? 'text-left' : 'text-right'}`}>{t.presentValue}</th>
-                          <th className={`py-3 px-2 font-semibold text-slate-600 ${isRTL ? 'text-left' : 'text-right'}`}>{t.cumulativeNPV}</th>
+                          <th className={`py-2 sm:py-3 px-1 sm:px-2 font-semibold text-slate-600 ${isRTL ? 'text-right' : 'text-left'}`}>{t.year}</th>
+                          <th className={`py-2 sm:py-3 px-1 sm:px-2 font-semibold text-slate-600 ${isRTL ? 'text-left' : 'text-right'}`}>{t.cashFlow}</th>
+                          <th className={`py-2 sm:py-3 px-1 sm:px-2 font-semibold text-slate-600 ${isRTL ? 'text-left' : 'text-right'}`}>{t.presentValue}</th>
+                          <th className={`py-2 sm:py-3 px-1 sm:px-2 font-semibold text-slate-600 ${isRTL ? 'text-left' : 'text-right'}`}>{t.cumulativeNPV}</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr className="border-b border-slate-100 bg-red-50">
-                          <td className={`py-3 px-2 text-slate-700 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>{t.initial}</td>
-                          <td className={`py-3 px-2 text-red-600 font-medium ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(-inputs.initialInvestment)}</td>
-                          <td className={`py-3 px-2 text-red-600 font-medium ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(-inputs.initialInvestment)}</td>
-                          <td className={`py-3 px-2 text-red-600 font-medium ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(-inputs.initialInvestment)}</td>
+                          <td className={`py-2 sm:py-3 px-1 sm:px-2 text-slate-700 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>{t.initial}</td>
+                          <td className={`py-2 sm:py-3 px-1 sm:px-2 text-red-600 font-medium ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(-inputs.initialInvestment)}</td>
+                          <td className={`py-2 sm:py-3 px-1 sm:px-2 text-red-600 font-medium ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(-inputs.initialInvestment)}</td>
+                          <td className={`py-2 sm:py-3 px-1 sm:px-2 text-red-600 font-medium ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(-inputs.initialInvestment)}</td>
                         </tr>
                         {result.presentValues.map((pv) => (
                           <tr key={pv.year} className="border-b border-slate-100 hover:bg-slate-50">
-                            <td className={`py-3 px-2 text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>{pv.year}</td>
-                            <td className={`py-3 px-2 text-slate-700 ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(pv.cashFlow)}</td>
-                            <td className={`py-3 px-2 text-slate-700 ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(pv.presentValue)}</td>
-                            <td className={`py-3 px-2 font-medium ${isRTL ? 'text-left' : 'text-right'} ${pv.cumulativeNPV >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                            <td className={`py-2 sm:py-3 px-1 sm:px-2 text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>{pv.year}</td>
+                            <td className={`py-2 sm:py-3 px-1 sm:px-2 text-slate-700 ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(pv.cashFlow)}</td>
+                            <td className={`py-2 sm:py-3 px-1 sm:px-2 text-slate-700 ${isRTL ? 'text-left' : 'text-right'}`}>{formatCurrencyAmount(pv.presentValue)}</td>
+                            <td className={`py-2 sm:py-3 px-1 sm:px-2 font-medium ${isRTL ? 'text-left' : 'text-right'} ${pv.cumulativeNPV >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                               {formatCurrencyAmount(pv.cumulativeNPV)}
                             </td>
                           </tr>

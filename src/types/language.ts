@@ -157,5 +157,4 @@ export interface Translations {
   cumulativeNPV: string;
   initial: string;
   amount: string;
-  description: string;
 }

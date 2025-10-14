@@ -40,33 +40,33 @@ const DepreciationCalculator = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-8">
+      <div className="relative z-10 container mx-auto px-4 py-4 sm:py-8">
         {/* Header */}
-        <div className={`flex items-center justify-center gap-3 mb-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
-          <div className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl shadow-lg">
-            <TrendingDown className="h-8 w-8 text-white" />
+        <div className={`flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className="p-2 sm:p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl shadow-lg">
+            <TrendingDown className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
           </div>
-          <div className={isRTL ? 'text-right' : 'text-left'}>
-            <h1 className="text-3xl font-bold text-slate-800">{t.title}</h1>
-            <p className="text-slate-600">{t.description}</p>
+          <div className={`${isRTL ? 'text-right' : 'text-left'} max-w-xs sm:max-w-none`}>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800">{t.title}</h1>
+            <p className="text-sm sm:text-base text-slate-600">{t.description}</p>
           </div>
         </div>
 
         {/* Language Dropdown and Currency Dropdown */}
-        <div className={`fixed top-6 z-50 flex gap-3 ${isRTL ? 'left-6' : 'right-6'}`}>
+        <div className={`fixed top-4 sm:top-6 z-50 flex gap-2 sm:gap-3 ${isRTL ? 'left-4 sm:left-6' : 'right-4 sm:right-6'}`}>
           <LanguageDropdown isDarkMode={false} />
           <CurrencyDropdown isDarkMode={false} />
         </div>
 
         {/* Main Content */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <DepreciationForm onSubmit={handleCalculate} isLoading={isLoading} isDarkMode={false} />
+            <DepreciationForm onSubmit={handleCalculate} isLoading={isLoading} />
             
             {isLoading && (
               <div className="flex justify-center items-center py-16">
@@ -94,7 +94,7 @@ const DepreciationCalculator = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="animate-fadeInUp"
               >
-                <DepreciationTable result={result} isDarkMode={false} />
+                <DepreciationTable result={result} />
               </motion.div>
             )}
           </motion.div>
