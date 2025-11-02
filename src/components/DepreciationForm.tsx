@@ -48,8 +48,8 @@ export default function DepreciationForm({ onSubmit, isLoading }: DepreciationFo
       label: t.linearMethod, 
       description: t.linearDescription,
       icon: TrendingUp,
-      color: 'from-navy-500 to-navy-600',
-      bgColor: 'bg-navy-50',
+      color: 'from-teal-500 to-teal-600',
+      bgColor: 'bg-teal-50',
       borderColor: 'border-navy-500',
       textColor: 'text-navy-600'
     },

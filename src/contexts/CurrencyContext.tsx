@@ -10,7 +10,7 @@ interface CurrencyProviderProps {
 }
 
 export function CurrencyProvider({ children }: CurrencyProviderProps) {
-  const [selectedCurrency, setSelectedCurrency] = useState<Currency>('USD');
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>('DZD');
 
   // Load saved currency preference from localStorage
   useEffect(() => {
@@ -25,7 +25,7 @@ export function CurrencyProvider({ children }: CurrencyProviderProps) {
     localStorage.setItem('selectedCurrency', selectedCurrency);
   }, [selectedCurrency]);
 
-  const convertAmount = (amount: number, fromCurrency: Currency = 'USD'): number => {
+  const convertAmount = (amount: number, fromCurrency: Currency = 'DZD'): number => {
     return convertCurrency(amount, fromCurrency, selectedCurrency);
   };
 

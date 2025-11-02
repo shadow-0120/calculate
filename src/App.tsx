@@ -1,11 +1,15 @@
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import { CurrencyProvider } from './contexts/CurrencyContext';
 import DepreciationCalculator from './pages/DepreciationCalculator';
 import LoanCalculator from './pages/LoanCalculator';
 import VANCalculator from './pages/VANCalculator';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import { Calculator, TrendingDown, DollarSign, BarChart3 } from 'lucide-react';
 import { useTranslations } from './hooks/useTranslations';
+import Footer from './components/Footer';
 
 type CalculatorType = 'depreciation' | 'loans' | 'van';
 
@@ -73,13 +77,24 @@ function AppContent() {
   );
 }
 
+function HomePage() {
+  return <AppContent />;
+}
+
 function App() {
   return (
-    <LanguageProvider>
-      <CurrencyProvider>
-        <AppContent />
-      </CurrencyProvider>
-    </LanguageProvider>
+    <Router>
+      <LanguageProvider>
+        <CurrencyProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+          </Routes>
+          <Footer />
+        </CurrencyProvider>
+      </LanguageProvider>
+    </Router>
   );
 }
 

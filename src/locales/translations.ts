@@ -68,8 +68,8 @@ export const translations: Record<Language, Translations> = {
     builtWith: 'Built with React, TypeScript & Tailwind CSS',
     
     // Currency and units
-    currency: 'USD',
-    currencyCode: 'USD',
+    currency: 'DZD',
+    currencyCode: 'DZD',
     percentage: '%',
     selectCurrency: 'Select Currency',
     currencySettings: 'Currency Settings',
@@ -128,132 +128,133 @@ export const translations: Record<Language, Translations> = {
     amount: 'Amount'
   },
   
-  ar: {
-    // Header
-    title: 'حاسبة الإهتلاك',
-    subtitle: 'إدارة الأصول المهنية',
-    description: 'احسب إهتلاك الأصول باستخدام ثلاث طرق :الاهتلاك الخطي  والرصيد المتناقص،  و المتزايد   .',
-    description2: 'احصل على جداول مفصلة وقم بتصدير التقارير المهنية لاحتياجات عملك.',
-    
-    // Theme toggle
-    toggleTheme: 'تبديل المظهر',
-    
-    // Form
-    formTitle: 'حاسبة الإهتلاك',
-    formSubtitle: 'اختر طريقتك وأدخل تفاصيل الأصل',
-    selectMethod: 'اختر طريقة الإهتلاك',
-    selectMethodDescription: 'اختر طريقة الإهلاك التي تناسب نوع أصلك',
-    assetInformation: 'معلومات الأصل',
-    assetInformationDescription: 'أدخل تفاصيل أصلك لحساب الإهلاك',
-    
-    // Methods
-    linearMethod: 'الإهتلاك الخطي',
-    linearDescription: 'إهلاك سنوي متساوٍ',
-    decliningBalanceMethod: 'الإهتلاك المتناقص',
-    decliningBalanceDescription: 'إهلاك أعلى في البداية',
-    sumOfYearsDigitsMethod: 'الإهتلاك المتزايد (طريقة مجموع الأرقام)',
-    sumOfYearsDigitsDescription: 'إهلاك متسارع',
-    progressiveMethod: 'الإهتلاك المتزايد',
-    progressiveDescription: 'إهلاك سنوي متزايد',
-    
-    // Form fields
-    assetCost: 'تكلفة الأصل',
-    salvageValue: 'قيمة الإنقاذ',
-    usefulLife: 'العمر الإنتاجي',
-    decliningBalanceRate: 'معدل الرصيد المتناقص',
-    commonRates: 'المعدلات الشائعة: 1.5 (150%)، 2 (200%)، 2.5 (250%)',
-    optional: 'اختياري',
-    
-    // Buttons
-    calculateDepreciation: 'حساب الإهلاك',
-    calculatingDepreciation: 'جاري حساب الإهلاك...',
-    exportCSV: 'تصدير CSV',
-    
-    // Table headers
-    year: 'السنة',
-    beginningValue: 'القيمة الابتدائية',
-    depreciationExpense: 'مصروف الإهلاك',
-    accumulatedDepreciation: 'الإهلاك المتراكم',
-    endingValue: 'القيمة النهائية',
-    
-    // Summary
-    depreciationSchedule: 'جدول الإهلاك',
-    method: 'الطريقة',
-    totalDepreciation: 'إجمالي الإهلاك',
-    summaryReport: 'تقرير ملخص',
-    totalDepreciationPeriod: 'فترة الإهلاك الإجمالية',
-    finalBookValue: 'القيمة الدفترية النهائية',
-    averageAnnualDepreciation: 'متوسط الإهلاك السنوي',
-    years: 'سنوات',
-    
-    // Loading
-    calculatingSchedule: 'جاري حساب جدول الإهلاك...',
-    thisMayTakeMoment: 'قد يستغرق هذا لحظة',
-    
-    // Footer
-    professionalDepreciationCalculator: 'حاسبة الإهلاك المهنية',
-    builtWith: 'مبني بـ React و TypeScript و Tailwind CSS',
-    
-    // Currency and units
-    currency: 'دولار أمريكي',
-    currencyCode: 'USD',
-    percentage: '%',
-    selectCurrency: 'اختر العملة',
-    currencySettings: 'إعدادات العملة',
-    
-    // App Navigation
-    financialCalculators: 'الحاسبات المالية',
-    depreciationCalculator: 'حاسبة الإهتلاك',
-    loanCalculator: 'حاسبة القروض',
-    vanCalculator: 'حاسبة القيمة الحالية الصافية',
-    
-    // Loan Calculator
-    loanTitle: 'حاسبة القروض',
-    loanSubtitle: 'احسب أقساط القروض مع الفائدة المركبة',
-    loanParameters: 'معايير القرض',
-    principalAmount: 'مبلغ القرض الأساسي',
-    annualInterestRate: 'معدل الفائدة السنوي (%)',
-    loanTerm: 'مدة القرض (سنوات)',
-    paymentFrequency: 'تكرار الدفع',
-    monthly: 'شهري',
-    quarterly: 'ربع سنوي',
-    semiAnnually: 'نصف سنوي',
-    annually: 'سنوي',
-    calculateLoan: 'حساب القرض',
-    calculatingLoan: 'جاري الحساب...',
-    monthlyPayment: 'الدفعة الشهرية',
-    totalInterest: 'إجمالي الفائدة',
-    amortizationSchedule: 'جدول تسديد القرض',
-    payment: 'الدفعة',
-    principal: 'الأصل',
-    interest: 'الفائدة',
-    balance: 'الرصيد',
-    morePayments: 'دفعات أخرى',
-    
-    // VAN Calculator
-    vanTitle: 'حاسبة القيمة الحالية الصافية',
-    vanSubtitle: 'احسب صافي القيمة الحالية لتحليل الاستثمار',
-    investmentParameters: 'معايير الاستثمار',
-    initialInvestment: 'الاستثمار الأولي',
-    discountRate: 'معدل الخصم (%)',
-    cashFlows: 'التدفقات النقدية',
-    addYear: 'إضافة سنة',
-    calculateVAN: 'حساب القيمة الحالية الصافية',
-    calculatingVAN: 'جاري الحساب...',
-    netPresentValue: 'صافي القيمة الحالية',
-    profitableInvestment: 'استثمار مربح',
-    notProfitable: 'غير مربح',
-    profitabilityIndex: 'مؤشر الربحية',
-    acceptable: 'مقبول',
-    notAcceptable: 'غير مقبول',
-    paybackPeriod: 'فترة الاسترداد',
-    cashFlowAnalysis: 'تحليل التدفق النقدي',
-    cashFlow: 'التدفق النقدي',
-    presentValue: 'القيمة الحالية',
-    cumulativeNPV: 'صافي القيمة الحالية المتراكم',
-    initial: 'أولي',
-    amount: 'المبلغ'
-  },
+ ar: {
+  // Header
+  title: 'حاسبة الإهتلاك',
+  subtitle: 'إدارة احترافية للأصول',
+  description: 'احسب إهتلاك الأصول تاعك بثلاث طرق دقيقة: الخطية، المتناقصة، ولا بطريقة مجموع الأرقام.',
+  description2: 'تقدر تطلع على الجداول بالتفصيل وتخرج تقارير احترافية تساعدك في شغلك.',
+
+  // Theme toggle
+  toggleTheme: 'بدّل المظهر',
+
+  // Form
+  formTitle: 'حاسبة الإهتلاك',
+  formSubtitle: 'اختار الطريقة ودخّل تفاصيل الأصل',
+  selectMethod: 'اختيار طريقة الإهتلاك',
+  selectMethodDescription: 'اختار الطريقة اللي تناسب نوع الأصل تاعك',
+  assetInformation: 'معلومات على الأصل',
+  assetInformationDescription: 'دخّل التفاصيل باش نحسبو الإهتلاك',
+
+  // Methods
+  linearMethod: 'الإهتلاك الخطي',
+  linearDescription: 'إهتلاك ثابت كل عام',
+  decliningBalanceMethod: 'الإهتلاك المتناقص',
+  decliningBalanceDescription: 'إهتلاك كبير في السنوات الأولى',
+  sumOfYearsDigitsMethod: 'طريقة مجموع الأرقام',
+  sumOfYearsDigitsDescription: 'إهتلاك سريع في البداية',
+  progressiveMethod: 'الإهتلاك المتزايد',
+  progressiveDescription: 'إهتلاك يزيد كل عام',
+
+  // Form fields
+  assetCost: 'سعر الأصل',
+  salvageValue: 'القيمة المتبقية',
+  usefulLife: 'العمر الإنتاجي',
+  decliningBalanceRate: 'نسبة الإهتلاك المتناقص',
+  commonRates: 'النسب الشائعة: 1.5 (150%)، 2 (200%)، 2.5 (250%)',
+  optional: 'اختياري',
+
+  // Buttons
+  calculateDepreciation: 'احسب الإهتلاك',
+  calculatingDepreciation: 'جاري الحساب...',
+  exportCSV: 'تصدير CSV',
+
+  // Table headers
+  year: 'السنة',
+  beginningValue: 'القيمة في البداية',
+  depreciationExpense: 'مصاريف الإهتلاك',
+  accumulatedDepreciation: 'الإهتلاك المتراكم',
+  endingValue: 'القيمة في النهاية',
+
+  // Summary
+  depreciationSchedule: 'جدول الإهتلاك',
+  method: 'الطريقة',
+  totalDepreciation: 'مجموع الإهتلاك',
+  summaryReport: 'تقرير الملخص',
+  totalDepreciationPeriod: 'مدة الإهتلاك الكاملة',
+  finalBookValue: 'القيمة الدفترية الأخيرة',
+  averageAnnualDepreciation: 'معدل الإهتلاك السنوي المتوسط',
+  years: 'سنوات',
+
+  // Loading
+  calculatingSchedule: 'جاري إنشاء الجدول...',
+  thisMayTakeMoment: 'استنى شوية، راهو يحسب',
+
+  // Footer
+  professionalDepreciationCalculator: 'حاسبة الإهتلاك الاحترافية',
+  builtWith: 'مبنية بـ React و TypeScript و Tailwind CSS',
+
+  // Currency and units
+  currency: 'الدولار الأمريكي',
+  currencyCode: 'DZD',
+  percentage: '%',
+  selectCurrency: 'اختار العملة',
+  currencySettings: 'إعدادات العملة',
+
+  // App Navigation
+  financialCalculators: 'حاسبات مالية',
+  depreciationCalculator: 'حاسبة الإهتلاك',
+  loanCalculator: 'حاسبة القروض',
+  vanCalculator: 'حاسبة القيمة الحالية الصافية',
+
+  // Loan Calculator
+  loanTitle: 'حاسبة القرض',
+  loanSubtitle: 'احسب الأقساط تاع القرض بالفائدة المركبة',
+  loanParameters: 'تفاصيل القرض',
+  principalAmount: 'مبلغ القرض الأصلي',
+  annualInterestRate: 'نسبة الفائدة السنوية (%)',
+  loanTerm: 'مدة القرض (بالسنوات)',
+  paymentFrequency: 'دورية الدفع',
+  monthly: 'شهري',
+  quarterly: 'كل ثلاثة أشهر',
+  semiAnnually: 'كل ستة أشهر',
+  annually: 'سنوي',
+  calculateLoan: 'احسب القرض',
+  calculatingLoan: 'جاري الحساب...',
+  monthlyPayment: 'القسط الشهري',
+  totalInterest: 'إجمالي الفائدة',
+  amortizationSchedule: 'جدول التسديد',
+  payment: 'الدفعة',
+  principal: 'الأصل',
+  interest: 'الفائدة',
+  balance: 'الرصيد',
+  morePayments: 'دفعات إضافية',
+
+  // VAN Calculator
+  vanTitle: 'حاسبة القيمة الحالية الصافية',
+  vanSubtitle: 'احسب الجدوى المالية لأي استثمار',
+  investmentParameters: 'تفاصيل الاستثمار',
+  initialInvestment: 'الاستثمار الأولي',
+  discountRate: 'نسبة الخصم (%)',
+  cashFlows: 'التدفقات النقدية',
+  addYear: 'زيد عام',
+  calculateVAN: 'احسب القيمة الحالية الصافية',
+  calculatingVAN: 'جاري الحساب...',
+  netPresentValue: 'صافي القيمة الحالية',
+  profitableInvestment: 'استثمار مربح',
+  notProfitable: 'مش مربح',
+  profitabilityIndex: 'مؤشر الربحية',
+  acceptable: 'مقبول',
+  notAcceptable: 'غير مقبول',
+  paybackPeriod: 'مدة الاسترجاع',
+  cashFlowAnalysis: 'تحليل التدفقات النقدية',
+  cashFlow: 'التدفق النقدي',
+  presentValue: 'القيمة الحالية',
+  cumulativeNPV: 'صافي القيمة التراكمي',
+  initial: 'أولي',
+  amount: 'المبلغ'
+},
+
   
   fr: {
     // Header
@@ -322,8 +323,8 @@ export const translations: Record<Language, Translations> = {
     builtWith: 'Construit avec React, TypeScript & Tailwind CSS',
     
     // Currency and units
-    currency: 'USD',
-    currencyCode: 'USD',
+    currency: 'DZD',
+    currencyCode: 'DZD',
     percentage: '%',
     selectCurrency: 'Sélectionner la Devise',
     currencySettings: 'Paramètres de Devise',

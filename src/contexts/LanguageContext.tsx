@@ -16,7 +16,7 @@ interface LanguageProviderProps {
 }
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const [language, setLanguageState] = useState<Language>('en');
+  const [language, setLanguageState] = useState<Language>('fr');
 
   useEffect(() => {
     // Check for saved language preference or default to English

@@ -5,8 +5,8 @@ import type { DepreciationInputs, DepreciationResult } from '../types/depreciati
 import { calculateDepreciation } from '../utils/depreciationCalculations';
 import DepreciationForm from '../components/DepreciationForm';
 import DepreciationTable from '../components/DepreciationTable';
-import LanguageDropdown from '../components/LanguageDropdown';
-import CurrencyDropdown from '../components/CurrencyDropdown';
+// import LanguageDropdown from '../components/LanguageDropdown';
+// import CurrencyDropdown from '../components/CurrencyDropdown';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTranslations } from '../hooks/useTranslations';
 
@@ -54,8 +54,8 @@ const DepreciationCalculator = () => {
 
         {/* Language Dropdown and Currency Dropdown */}
         <div className={`fixed top-4 sm:top-6 z-50 flex gap-2 sm:gap-3 ${isRTL ? 'left-4 sm:left-6' : 'right-4 sm:right-6'}`}>
-          <LanguageDropdown isDarkMode={false} />
-          <CurrencyDropdown isDarkMode={false} />
+          {/* <LanguageDropdown isDarkMode={false} /> */}
+          {/* <CurrencyDropdown isDarkMode={false} /> */}
         </div>
 
         {/* Main Content */}

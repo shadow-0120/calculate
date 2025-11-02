@@ -4,8 +4,8 @@ import { BarChart3, DollarSign, Plus, Trash2, TrendingUp, Download } from 'lucid
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCurrency } from '../contexts/CurrencyContext';
 import { useTranslations } from '../hooks/useTranslations';
-import LanguageDropdown from '../components/LanguageDropdown';
-import CurrencyDropdown from '../components/CurrencyDropdown';
+// import LanguageDropdown from '../components/LanguageDropdown';
+// import CurrencyDropdown from '../components/CurrencyDropdown';
 
 interface CashFlow {
   id: string;
@@ -188,8 +188,8 @@ const VANCalculator = () => {
 
         {/* Language Dropdown and Currency Dropdown */}
         <div className={`fixed top-4 sm:top-6 z-50 flex gap-2 sm:gap-3 ${isRTL ? 'left-4 sm:left-6' : 'right-4 sm:right-6'}`}>
-          <LanguageDropdown isDarkMode={false} />
-          <CurrencyDropdown isDarkMode={false} />
+          {/* <LanguageDropdown isDarkMode={false} /> */}
+          {/* <CurrencyDropdown isDarkMode={false} /> */}
         </div>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
