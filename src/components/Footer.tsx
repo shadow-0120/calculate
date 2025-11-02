@@ -6,7 +6,6 @@ import {
   Heart, 
   Github, 
   Linkedin, 
-  Twitter,
   ArrowUp,
   Instagram
 } from 'lucide-react';
